@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZXVGV20LRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZXVGV20LRR');
+</script>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> long for <meta charset="utf-8" />  -->
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>BetPools</title>
+<base href="{{site.baseurl}}" />
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="img/fav/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="img/fav/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/css/_menu.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/css/_betpools.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/css/sweetalert/sweetalert.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/js/_walletstatus1.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/js/_betpools.js"></script>
+<script type="application/javascript" src="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/js/sweetalert/sweetalert.min.js"></script>
+
+<script>
+//Responsive Nav
+function updatemenu() {
+  if (document.getElementById('responsive-menu').checked == true) {
+    document.getElementById('menu').style.borderBottomRightRadius = '0';
+    document.getElementById('menu').style.borderBottomLeftRadius = '0';
+  }else{
+    document.getElementById('menu').style.borderRadius = '0px';
+  }
+}
+//TYPEWRITER
+document.addEventListener('DOMContentLoaded',function(event){
+    // array with texts to type in typewriter
+    var dataText = [ "Find sample EPL fixtures below. Our smart contract is live, but front end still needs work!", "We will hold our first matchday betting this coming Sunday, with a few fixtures.", "Click on a fixture below to open it and place bets in 5 different pools.", "Track the fixture from its page to view betting stats, results and withdraw winnings.", "This is a sample design template to be ready soon..."];
+  
+    // type one text in the typwriter
+    // keeps calling itself until the text is finished
+    function typeWriter(text, i, fnCallback) {
+        // chekc if text isn't finished yet
+        if (i < (text.length)) {
+            // add next character to h1
+            document.querySelector(".intro_").innerHTML = text.substring(0, i+1) +'<span id="typewrite" aria-hidden="true"></span>';
+
+            // wait for a while and call this function again for next character
+            setTimeout(function() {
+                typeWriter(text, i + 1, fnCallback)
+            }, 100);
+        }
+        // text finished, call callback if there is a callback function
+        else if (typeof fnCallback == 'function') {
+            // call callback after timeout
+            setTimeout(fnCallback, 700);
+        }
+    }
+    // start a typewriter animation for a text in the dataText array
+    function StartTextAnimation(i) {
+        if (typeof dataText[i] == 'undefined'){
+            setTimeout(function() {
+                StartTextAnimation(0);
+            }, 20000);
+        }else{
+            // check if dataText[i] exists
+            if (i < dataText[i].length) {
+                // text exists! start typewriter animation
+                typeWriter(dataText[i], 0, function(){
+                // after callback (and whole text has been animated), start next text
+                StartTextAnimation(i + 1);
+                });
+            }
+        }
+    }
+    // start the text animation
+    StartTextAnimation(0);
+});
+
+
+</script>
+</head>
+
+<body>
+    <main id="main">
+        <nav id='menu'>
+            <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+            <ul>
+                <li class="go_home"><a href='index.html'><img src="img/footy-inu-red.png" alt="Logo" class="block-header-logo__image"></a></li>
+                <div class="chainstat">
+                    <div id="blocknumber" class="blockel">-------</div><div class="dot blockel"></div>
+                </div>
+                <div class="menu_float">
+                    <li><a href='dashboard.html'>myDashboard</a></li>
+                </div>
+                <div class="menu_float" style="margin-right:4%;">
+                    <li><a href='betpools.html'>Bet Pools</a></li>
+                </div>
+            </ul>
+        </nav>
+        
+        <div id="mainwindow">
+            <div class="blockstatehold" id="blockstatehold">
+                <div class="showingshold">
+                    <div class="wallets walletpur" style="display:none;">
+                        <div class="wallet_tab">
+                            <span id="wallet_balance">...</span><img src="img/walletimg.svg" /><span id="wallet_id">0x...</span>
+                        </div>
+                    </div>
+                    <div class="wallets waiting_init">-----</div>
+                    <div class="wallets wallet_connect">Connect Wallet</div>
+                    <div class="wallets network_switch">Switch Network</div>
+                </div>
+            </div>
+            <section class="introbanner">
+                <div class="windows_shift">
+                    <span class="bannerspan"><h1>Join Betting Pools</h1></span>
+					<div class="intro_cont"><div class="intro_"></div></div>
+                </div>
+            </section>
+        </div><!-- mainwindow -->
+        
+        <section class="banksec">
+            <!-- fixtureCrads -->
+            <div class="mybank">
+                <div class="upcomingFixtures">
+                    <h4>>EPL Fixtures</h4>
+                </div>
+                <div class="mybank_casing">
+                    <!-- <div class="fixtureBetsSummary"><span class="tspan" id="mbcard_liq"> ---- </span><span id="mbcard_liqdet"> ---- </span></div> -->
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 15:00 GMT, 16 oct </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1">Leeds United</br>Arsenal FC</span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 17:30 GMT, 16 oct </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1">Manchester City</br>Liverpool</span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                    <div class="fixtureCard">
+                        <div class="kickoff">kickoff: 00:00 </div>
+                        <div class="fixCardBallLeft"></div>
+                        <div class="fixtureTitle"><span id="fixture#1"> --- Team </br> --- Team </span></div>
+                        <div class="fixCardBallRight"></div>
+                        <div class="fixtureBetsSummary">
+                            <div class="fix_betsOn"><span>HomeWin</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>Draw</span><span class="betAmounts">0 BNB</span></div>
+                            <div class="fix_betsOn"><span>AwayWin</span><span class="betAmounts">0 BNB</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </section>
+
+         <!-- include swap module -->
+		<div swaps-include-html="https://cdn.jsdelivr.net/gh/rrdaoproxy/russianr@main/resources/_incl_swaps.html"></div>
+
+    </main>
+
+<div id="popupNotify" style="display:none;">
+	<div id="pNotifyX">x</div>
+    <div class="popupSuccess"></div>
+    <div class="popupBody">
+        <span class="popupText" id="popupTitle"></span>
+        <span class="popupText" id="popupAmounts"></span>
+        <span class="popupText" id="popupTxhash"></span>
+    </div>
+    <div id="pNt" class="popupNotify_timer"></div>
+</div>
+<section id="holf_p6">
+	<div class="contacts_cont">
+    	<span>socials jump:</span></br></br>
+        <a class="social_links" href="https://twitter.com/betinu" target="_blank" alt="Twitter Page" title="Go to Twitter page"><img src="img/twitter.svg" width="32px"/></a>
+        <a class="social_links" href="https://t.me/betinuchat" target="_blank" alt="Telegram Group" title="Go to Telegram group"><img src="img/telegram.svg" width="32px"/></a>
+	</div>
+</section>
+<!-- LOADING OVERLAY-->
+<div id="loadOverlay" style="background: radial-gradient(#1f1f1f, #000); position:fixed; top:0px; left:0px; width:100%; height:100%; z-index:2000;">
+    <div class="loading_badge_place" style="position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);height:15vw;width:15vw;text-align:center;z-index:150;background: url('img/footy-inu-blue.png') no-repeat; background-position: center; background-repeat:no-repeat;  background-size:300px auto;">
+        
+    </div>
+</div>
+<!-- DRY /MODULAR DEVELOPMENT -->
+<script>
+	includeSwaps();
+</script> 
+
+</body>
+</html>

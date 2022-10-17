@@ -1,0 +1,209 @@
+<html>
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P34PL8WQZ0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P34PL8WQZ0');
+</script>
+
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bet-INU</title>
+<base href="{{site.baseurl}}" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+<link rel="manifest" href="img/fav/site.webmanifest">
+<link rel="mask-icon" href="img/fav/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="img/fav/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="img/fav/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,400&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/css/_menu.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/betinu/betinu-proxy@main/css/_home.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"><!-- font5 css stickers -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script>
+    //Responsive Nav
+    function updatemenu() {
+        if (document.getElementById('responsive-menu').checked == true) {
+            document.getElementById('menu').style.borderBottomRightRadius = '0';
+            document.getElementById('menu').style.borderBottomLeftRadius = '0';
+        }else{
+            document.getElementById('menu').style.borderRadius = '0px';
+        }
+    }
+    var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+</script>
+</head>
+
+<body>
+
+<nav id='menu'>
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+    <ul>
+        <li class="go_home"><a href='index.html'><img src="img/footy-inu-red.png" alt="Logo" class="block-header-logo__image"></a></li>
+        <div class="menu_float">
+            <li><a href='dashboard.html'>Dashboard</a></li>
+        </div>  
+        <div class="menu_float" style="margin-right:4%;">
+            <li><a href='betpools.html'>Bet Pools</a></li>
+        </div>
+    </ul>
+</nav>
+<section id="holf">
+    <div class="goalcont">
+        <ul class="betinuTitle">
+            <h4>🎲 Bet INU</h4>
+        </ul> 
+        <div id="betinulogo"></div>
+        
+        <div id="taglines">      
+            <span class="main_points"><h1 class="glitch">Bet-INU is a P2P Football Betting platform, the first with copy betting and BaaS on the blockchain. Scalable to all leagues/tournaments. Replacing Bookmakers with Bet Pools. On the BSC mainnet.</h1></span></br>
+        </div>
+        <div class="p1_links_cont">
+            <a class="p1_links" href="https://goerli.etherscan.io/address/" target="_blank">BSCscan</a><a class="p1_links" href="https://app.uniswap.org/#/swap?chain=goerli&outputCurrency=0x0" target="_blank" title="GOERLI TESTNET">Pancake</a><button class="p1_links" title="not available on Testnet">Dextools</button> </br>
+            <!-- <a class="p1_download_links" href="#" target="_blank">Mission</a> -->
+        </div>
+        <video class="nftVideo" width="800" height="auto" autoplay controls muted loop>
+            <source src="img/BetInuVideo3.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+        </video> 
+    </div>
+    <div class="Aboutus">
+        </br></br>
+        <div class="missionintro">About Bet-INU.</div>
+        <li>Making Football betting fun, easy, fair and accessible world wide.</li>
+        <li>Smart contract is designed to scale into all Leagues/Cup Competitions. Betting is bigger than just the Fifa World Cup.</li>
+        <li>We will cover EPL, UEFA Champions League, Laliga, Bundesliga, Serie A, Europa League, etc. incl the 2022 Fifa World Cup.</li>
+        <li>We have replaced the Bookmakers approach for setting house rules on bets and odds.</li>
+        <li>Instead Bet Pools are used for each fixture. Odds are determined by money in each pool.</li>
+        <li>Each fixture is singular, i.e. no duplicate fixtures with different betters.</li>
+        <li>Bet on results or goals by placing money into a Bet pool with other betters.</li>
+        <li>Each fixture has 5 bet pools to place money in: Win, Lose, Draw, Goalless, and Goals.</li>
+        <li>At the final whistle, winning wallets share the money from the losing bet pools.</li>
+    </br>
+        <div>i.e Fixture 1 - Mancity vs Liverpool: HomeWin Pool 100 BNB, AwayWin Pool 80 BNB, Draw Pool 90 BNB. If City wins, HomeWin pool betters will share: 80 + 90 BNB at; myBetAmountInPool/TotalBetsInPool * Proceeds from losing bet pools.</div>
+        <div class="missionintro">Start betting on the EPL this coming weekend! </br>Running on BSC, our betting platform is cheap and fast!</div>
+    </br></br>
+    </div>
+    <div class="features">
+        <span class="featuresTitle">Copy Betting Is Coming...</span>
+        <div class="moneyflow_diag"><img width="100%" src="img/copybetting.png" /></div>
+        <span>Bet INU facilitates Betting as a Service (BaaS) through P2P Copy Betting. And you can copy a single wallet across all leagues and fixtures. Youre on a losing streak, other wallets are killing it, just copy their bets! There are Bet Tippers and Copiers. Tippers earn 5% in royalties from copier porfits, on each win. You could earn thousands in royalties from wallets copying you. At the end of the Season, highest ranking Tippers win a Prize!</span>
+    </div>
+    <div class="features featuresList">
+        <span>In no particular order, full features list:</span>
+        <li>P2P Betting</li>
+        <li>Bet Pools</li>
+        <li>League Infor and fixtures list</li>
+        <li>Fixture has 5 pools: home win, away win, draw, goals & goalless</li>
+        <li>Bet on result: home win, away win, draw</li>
+        <li>Bet on goals: goals, goal less</li>
+        <li>Get fixture information: teams, kickoff, scores, etc</li>
+        <li>Wallet can mix leagues to bet in, it will show true reflection of perfomance</li>
+        <li>Copers can copy a single wallet across all leagues and fixtures</li>
+        <li>Get fixture bets stats</li>
+        <li>Get fixture revenue stats</li>
+        <li>Get wallet Bet on fixture</li>
+        <li>Get wallet Bet outcome: result + goals</li>
+        <li>Bidding is in BNB with a minimum token holdings check</li>
+        <li>Team summary and stats</li>
+        <li>Get fixtures for team</li>
+        <li>Get betters on fixture</li>
+        <li>Get wallet fixture history</li>
+        <li>Get wallet's history with team</li>
+        <li>Get wallet betting balances: bet sums, correct monies on, and bets revenues</li>
+        <li>Get wallet perfomance: bets count vs win counts, success rate, profitability measure</li>
+        <li>Lucky dip lottery when buying or placing bet (auto)</li>
+        <li>Assign wallet to copy Bets from</li>
+        <li>Check Copied wallet's perfomance</li>
+        <li>Remove wallet to copy bets from</li>
+        <li>Cannot place vote independently if wallet to copy is assigned</li>
+        <li>Copy betting is only for result bets. not bets on goals</li>
+        <li>Royalties auto calculated and send to copied wallet on winnings withdrawal</li>
+        <li>Reimburse tokens to betters if no counter bets in pools</li>
+        <li>Withdraw winnings and initial bet 10mins after final whistle</li>
+        <li>Bet amount cap, auto increases hours before kickoff</li>
+        <li>Betting contests win from lottery pool</li>
+        <li>Lottery pool can poach reflections pool</li>
+        <li>Boost selected pool rewards before withdrawals, promos for matchday popular fixtures</li>
+        <li>Update fixture information: teams, kickoff, results. Safety hats on.</li>
+        <li>Bonfire events open to all, burn tokens.</li>
+        <li>Liquidity adding/funding programme inbuilt. Open to all to add liquidity</li>
+        <li>Liquidity funders get paid direct from tax revenue in_swap(), with 20% interest</li>
+        <li>Check liquidity funding profile and withdraw funds</li>
+        <li>Claim reflections</li>
+        <li>Team tokens locked 9 months</li>
+        <li>Mev bot trap and liquidate tokens</li>
+        <li>Max holdings 1%</li>
+        <li>Price fetch</li>
+        <li>Customise lucky dip parameters for: buying competition or betting competition</li>
+    </div>
+    <div class="tokenomics">
+        </br></br>
+        <div class="missionintro">Tokenomics</div>
+        <li><span>500 million Total Token Supply</span></li>
+        <li><span>Burn function inbuilt</span></li>
+        <li><span>Max wallet 1% of supply</span></li>
+        <li><span>Team tokens 5% locked 9 months</span></li>
+        <li><span>Taxes 5/5</span></li>
+        <li><span>Tax revenue, 50% reflections, 50% growth and marketing</span></li>
+        <li><span>Buy competitions configuration inbuilt (winnings included)</span></li>
+        <li><span>Tokens required to place a bet</span></li>
+        <li><span>Liquidity adding function open to all, LP tokens locked by admin</span></li>
+    </br></br>
+    </div>
+    <div class="tokenomics">
+        </br></br>
+        <div class="missionintro">Whats next</div>
+        <li><span>Fair Launch: 7pm GMT Monday 17 Oct 2022.</span></li>
+        <li><span>Ownership will be renounced soon after.</span></li>
+        <li><span>LP tokens will be provisionally locked 24 months.</span></li>
+        <li><span>Final Audit will be done from project revenue.</span></li>
+        <li><span>We will spend the next few months focusing on: front-end, a lot of marketing in all crypto circles, shaping the brand and later on acquiring market operating licenses. As we shape a realistic timeline.</span></li>
+        <li><span>This is a community project, betting is scalable into all communities world wide, spread the word. Each weekend we will hold betting competitions, entering a lucky dip lottery when you bet. Bet pool rewards/BNB are boosted for popular pools.</span></li>
+    </br></br>
+    </div>
+
+</section>
+
+
+<section id="holf_p6">
+	<div class="contacts_cont">
+    	<span>socials jump:</span></br></br>
+        <a class="social_links" href="https://twitter.com/betinuBSC" target="_blank" alt="Twitter Page" title="Go to Twitter page"><img src="img/twitter.svg" width="32px"/></a>
+        <a class="social_links" href="https://t.me/betinuBSC" target="_blank" alt="Telegram Group" title="Go to Telegram group"><img src="img/telegram.svg" width="32px"/></a>
+	</div>
+</section>
+<!-- LOADING OVERLAY-->
+<div id="loadOverlay" style="background: radial-gradient(#1f1f1f, #000); position:fixed; top:0px; left:0px; width:100%; height:100%; z-index:2000;">
+    <div class="loading_badge_place" style="position: absolute;top: 50%;left: 50%;-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);height:15vw;width:15vw;text-align:center;z-index:150;background: url('img/footy-inu-blue.png') no-repeat; background-position: center; background-repeat:no-repeat;  background-size:300px auto;">
+        
+    </div>
+</div>
+</body>
+</html>
